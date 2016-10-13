@@ -22,7 +22,7 @@ EXAMPLES = '''
 - set_artifact:
     data:
         one_artifact: "{{ local_var * 2 }}"
-        another_artifact: "{{ some_registered_var.results | map(attribute='ansible_facts.some_fact') | list }}"
+        another_artifact: "foobar"
 
 
 # Specifying a local path to save the artifacts to
@@ -30,13 +30,7 @@ EXAMPLES = '''
     data:
         one_artifact: "{{ local_var * 2 }}"
         another_artifact: "{{ some_registered_var.results | map(attribute='ansible_facts.some_fact') | list }}"
-    dest=/tmp/prefix-{{ inventory_hostname }}
-
-
-
-host | success >> {
-    "artifact_data": {}
-}
+    dest=/tmp/artifacts.yml
 '''
 
 def main():
